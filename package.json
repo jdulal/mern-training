@@ -1,0 +1,27 @@
+{
+  "name": "mysql-base",
+  "version": "1.0.0",
+  "description": "node js with mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/lizenshakya/node-mysql-base.git"
+  },
+  "keywords": [
+    "node",
+    "mysql"
+  ],
+  "author": "Lizen Shakya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/lizenshakya/node-mysql-base/issues"
+  },
+  "homepage": "https://gitlab.com/lizenshakya/node-mysql-base#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
