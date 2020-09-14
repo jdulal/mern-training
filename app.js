@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 
 app.use(morgan('combined'));
 
-app.use('/api/', indexRouter);
+app.use('/api', indexRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
