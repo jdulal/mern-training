@@ -10,6 +10,8 @@ const indexRouter = require('./lib/routes');
 //accessing .env file for applications
 require('dotenv').config({path: path.join(__dirname, "conf/.env")});
 
+const mongoDbConnector = require('./lib/policies/mongo-database.policy');
+
 //enabling cors
 app.use(cors());
 app.options('*', cors());
@@ -28,7 +30,24 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+//initializing mongodb
+mongoDbConnector.init(app);
+
 app.use(morgan('combined'));
+
+// Middleware for checking the logged in status
+app.use((req, res, next) => {
+    if (app.locals.db) {
+      req.db = app.locals.db;
+    }
+    if (app.locals.clientDb) {
+      req.clientDb = app.locals.clientDb;
+    }
+    req.root_dir = __dirname;
+    req.client_ip_address = requestIp.getClientIp(req);
+    req.client_device = req.device.type + ' ' + req.device.name;
+    next();
+});
 
 app.use('/api', indexRouter);
 
