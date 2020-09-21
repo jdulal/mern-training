@@ -44,8 +44,8 @@ app.use((req, res, next) => {
       req.clientDb = app.locals.clientDb;
     }
     req.root_dir = __dirname;
-    req.client_ip_address = requestIp.getClientIp(req);
-    req.client_device = req.device.type + ' ' + req.device.name;
+    //req.client_ip_address = requestIp.getClientIp(req);
+    //req.client_device = req.device.type + ' ' + req.device.name;
     next();
 });
 
