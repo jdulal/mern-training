@@ -32,7 +32,6 @@ app.use(bodyParser.json());
 
 //initializing mongodb
 mongoDbConnector.init(app);
-
 app.use(morgan('combined'));
 
 // Middleware for checking the logged in status
